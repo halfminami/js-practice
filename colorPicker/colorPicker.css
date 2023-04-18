@@ -1,0 +1,28 @@
+*[class$="value"] {
+  display: inline-block;
+  width: 3em;
+}
+.color-preview {
+  width: 90vw;
+  height: 15vh;
+  border-radius: 0.5em;
+  display: flex;
+}
+.color-code {
+  letter-spacing: 3px;
+  font-size: 2em;
+
+  /* change color, reverse black and white */
+  filter: hue-rotate(180deg) invert(100%);
+  /* but on some colors (colors middle of the slider)
+  filter won't work so add outer edge */
+  --c: black;
+  text-shadow: 1px 1px 0 var(--c), -1px -1px 0 var(--c), -1px 1px 0 var(--c),
+    1px -1px 0 var(--c), 0px 1px 0 var(--c), 0 -1px 0 var(--c),
+    -1px 0 0 var(--c), 1px 0 0 var(--c);
+
+  /* how to center div */
+  width: fit-content;
+  margin: auto;
+  align-self: center;
+}

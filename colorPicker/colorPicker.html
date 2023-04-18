@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link href="./colorPicker.css" rel="stylesheet" type="text/css" />
+    <script src="./colorPicker.js" defer></script>
+    <title>my colorPicker</title>
+  </head>
+  <body>
+    <h1>simple color picker</h1>
+    <p>color codes are hex number.</p>
+    <div class="colorpicker">
+      <div class="color-preview"><div class="color-code"></div></div>
+      <input type="range" class="color-r" max="255" min="0" value="0" />
+      <div class="color-r-value"></div>
+      <input type="range" class="color-g" max="255" min="0" value="0" />
+      <div class="color-g-value"></div>
+      <input type="range" class="color-b" max="255" min="0" value="0" />
+      <div class="color-b-value"></div>
+      0x<input type="text" class="color-hex" />
+    </div>
+    <p>
+      but you can use <code>&lt;input type=&quot;color&quot;&gt;</code>:
+      <input type="color" />
+    </p>
+  </body>
+</html>
