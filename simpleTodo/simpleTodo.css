@@ -1,0 +1,14 @@
+html {
+  color: gray;
+}
+li {
+  width: fit-content;
+}
+ul {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+li:hover {
+  text-decoration: line-through;
+  text-decoration-color: black;
+}
