@@ -13,7 +13,7 @@ window.addEventListener("DOMContentLoaded", () => {
     let year = d.getFullYear(),
       month = d.getMonth() + 1,
       date = d.getDate();
-    // parse dataset if exists
+
     const dataset = div.dataset.yyyymmdd;
     if (dataset) {
       year = parseInt(dataset.slice(0, 4)) || year;
@@ -34,13 +34,14 @@ window.addEventListener("DOMContentLoaded", () => {
     delall(div);
     let day = new Date(year, month - 1, 1).getDay();
     let alldays = getDaysOfMonth(year, month);
+
     for (let i = 0; i < dow.length; ++i) {
       const el = div.appendChild(createDate(0, 0, 0, dow[i]));
       el.classList.add("calendar-dayofweek");
     }
     /** how many days were inserted */
     let datecnt = 0;
-    /** increments cnt */
+
     const insertDate = () => {
       const el = div.appendChild(
         createDate(year, month, datecnt + 1, (datecnt + 1).toString())
@@ -59,7 +60,8 @@ window.addEventListener("DOMContentLoaded", () => {
         if (datecnt == 0) {
           // have not inserted yet
           if (day == dayindx) {
-            insertDate(); // 1st
+            // 1st
+            insertDate(); // increments cnt
           } else {
             insertDum();
           }
