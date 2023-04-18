@@ -1,0 +1,23 @@
+:root {
+  --size: 3em;
+}
+.calendar > div {
+  width: var(--size);
+  height: var(--size);
+  border: 1px solid gray;
+  /* center text */
+  line-height: var(--size);
+  text-align: center;
+}
+.calendar-today {
+  background-color: lightgray;
+}
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  /* no space between cols */
+  width: min-content;
+}
+.calendar-dayofweek {
+  background-color: aliceblue;
+}

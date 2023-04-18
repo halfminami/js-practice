@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link href="./calendar.css" rel="stylesheet" type="text/css" />
+    <script src="./calendar.js" defer></script>
+    <title>my calendar</title>
+  </head>
+  <body>
+    <h1>simple calendar</h1>
+    <h2 id="tdy"></h2>
+    <div class="calendar"></div>
+    <h2>2022-09-09</h2>
+    <div class="calendar" data-yyyymmdd="20220909"></div>
+    <h2>2020-04</h2>
+    <div class="calendar" data-yyyymmdd="20200400"></div>
+    <script>
+      const tdy = document.getElementById("tdy");
+      tdy.textContent = new Date().toString();
+    </script>
+  </body>
+</html>
