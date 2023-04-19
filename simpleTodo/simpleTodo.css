@@ -2,7 +2,9 @@ html {
   color: gray;
 }
 li {
-  width: fit-content;
+  margin-right: 1em;
+  overflow-wrap: break-word;
+  min-width: 0;
 }
 ul {
   display: grid;
