@@ -1,0 +1,21 @@
+.ax {
+  fill: none;
+  stroke: black;
+  stroke-width: 2px;
+}
+.box {
+  width: min-content;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.box > * {
+  display: block;
+}
+.cp {
+  fill: none;
+  stroke: darkgreen;
+  stroke-width: 2px;
+}
+.check {
+  fill: lightgreen !important;
+}

@@ -23,6 +23,13 @@ make calendar. use dataset to specify what calendar to be drawn
 - no space between columns in `display: grid;`
 - how to center text in div
 
+## SVG Animation
+demonstrate sampling. this is a little bit complicated example
+- svg `marker`, `animate`
+- svg animation by different clocks
+- `setInterval()` multiple times
+- `createElementNS()`
+
 # how to use
 open html file in browser  
 (only checked on Chrome)
