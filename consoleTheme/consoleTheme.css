@@ -18,7 +18,6 @@ p {
 }
 body {
   counter-reset: lines 0;
-  padding-bottom: 1em;
 }
 p::before {
   content: counter(lines) " ";
@@ -80,6 +79,10 @@ span.cursor {
     --gray: #a1a1a1;
     --darkgray: #767676;
   }
+
+  p::before {
+    content: "> ";
+  }
   /* cursor animation */
   .current::after {
     content: "";
@@ -93,11 +96,9 @@ span.cursor {
     margin-top: auto;
     animation: flash 2s infinite steps(2, jump-start);
   }
-  p::before {
-    content: "> ";
-  }
 }
 body {
+  padding-bottom: 1em;
   background-color: var(--background);
   color: var(--color);
   font-family: "consolas", monospace;
@@ -131,7 +132,7 @@ small {
 }
 code,
 pre {
-  font-family: "consolas", monospace;
+  font-family: inherit;
 }
 code {
   color: var(--code);
@@ -173,19 +174,15 @@ h6 {
   margin: 0;
 }
 @keyframes flash {
-  from {
-    background-color: currentColor;
-  }
-  /* 0~49% should be colored (color 100%) */
+  from,
   49% {
     background-color: currentColor;
+    /* 0~49% should be colored (color 100%) */
   }
-  50% {
-    background-color: transparent;
-  }
-  /* 50%~100% should be #00000000 (100% transparent) */
+  50%,
   to {
     background-color: transparent;
+    /* 50%~100% should be #00000000 (100% transparent) */
   }
 }
 *::selection {
