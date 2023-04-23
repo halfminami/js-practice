@@ -1,0 +1,202 @@
+/* quick mini console theme */
+/* default style (neiter dark nor light): almost copied from vscode default dark theme  */
+:root {
+  --background: #1e1e1e;
+  --color: #cccccc;
+  --embed: #c586b6;
+  --mainback: #007acc;
+  --string: #ce9178;
+  --main: #ffffff;
+  --variables: #4fc1ff;
+  --code: #dcdcaa;
+  --comment: #6a9955;
+  --gray: #a1a1a1;
+  --darkgray: #767676;
+}
+p {
+  margin: 0.3em 0;
+}
+body {
+  counter-reset: lines 0;
+  padding-bottom: 1em;
+}
+p::before {
+  content: counter(lines) " ";
+  counter-increment: lines 1;
+}
+/* text cursor I */
+.current::after,
+span.cursor {
+  display: inline-block;
+  width: 0.1em;
+  height: 0.9em;
+  margin-top: auto;
+  animation: flash 2s infinite steps(2, jump-start);
+}
+@media (prefers-color-scheme: dark) {
+  /* dark mode: almost copied from windows terminal theme campbell */
+  :root {
+    --background: #0c0c0c;
+    --color: #cccccc;
+    --embed: #c50f1f;
+    --mainback: #13a10e;
+    --string: #16c60c;
+    --main: #0037da;
+    --variables: #3b78ff;
+    --code: #61d6d6;
+    --comment: #c19c00;
+    --gray: #a1a1a1;
+    --darkgray: #767676;
+  }
+  p::before {
+    content: "$ ";
+  }
+  /* cursor animation */
+  .current::after {
+    content: "";
+  }
+  /* insert span.cursor anywhere */
+  .current::after,
+  span.cursor {
+    display: inline-block;
+    width: 0.5em;
+    height: 0.3em;
+    margin-top: auto;
+    animation: flash 2s infinite steps(2, jump-start);
+  }
+}
+@media (prefers-color-scheme: light) {
+  /* light mode: almost copied from windows terminal theme campbell powershell */
+  :root {
+    --background: #012456;
+    --color: #cccccc;
+    --embed: #e74856;
+    --mainback: #487fdf;
+    --string: #16c60c;
+    --main: #ffffff;
+    --variables: #487fdf;
+    --code: #f9f1a5;
+    --comment: #f9f1a5;
+    --gray: #a1a1a1;
+    --darkgray: #767676;
+  }
+  /* cursor animation */
+  .current::after {
+    content: "";
+  }
+  /* insert span.cursor anywhere */
+  .current::after,
+  span.cursor {
+    display: inline-block;
+    width: 0.5em;
+    height: 0.3em;
+    margin-top: auto;
+    animation: flash 2s infinite steps(2, jump-start);
+  }
+  p::before {
+    content: "> ";
+  }
+}
+body {
+  background-color: var(--background);
+  color: var(--color);
+  font-family: "consolas", monospace;
+  margin: 0;
+}
+.hidden {
+  display: none;
+}
+em {
+  color: var(--embed);
+}
+b {
+  color: var(--string);
+}
+q,
+blockquote {
+  color: var(--variables);
+}
+i {
+  color: var(--comment);
+}
+strong {
+  background-color: var(--mainback);
+  color: var(--main);
+}
+s {
+  color: var(--darkgray);
+}
+small {
+  color: var(--gray);
+}
+code,
+pre {
+  font-family: "consolas", monospace;
+}
+code {
+  color: var(--code);
+}
+pre {
+  color: var(--color);
+  margin-left: 1em;
+}
+a {
+  color: var(--color);
+  text-decoration: none;
+}
+/* not visited */
+a:link {
+  color: var(--color);
+  text-decoration: none;
+}
+a:visited {
+  color: var(--gray);
+  text-decoration: underline;
+}
+a:hover {
+  color: var(--color);
+  text-decoration: underline;
+}
+/* clicking */
+a:active {
+  color: var(--embed);
+  text-decoration: underline;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  background-color: var(--mainback);
+  color: var(--background);
+  margin: 0;
+}
+@keyframes flash {
+  from {
+    background-color: currentColor;
+  }
+  /* 0~49% should be colored (color 100%) */
+  49% {
+    background-color: currentColor;
+  }
+  50% {
+    background-color: transparent;
+  }
+  /* 50%~100% should be #00000000 (100% transparent) */
+  to {
+    background-color: transparent;
+  }
+}
+*::selection {
+  background-color: var(--color);
+  color: var(--background);
+}
+#foot {
+  text-align: right;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: auto;
+}

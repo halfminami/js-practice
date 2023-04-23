@@ -23,6 +23,12 @@ make calendar. use dataset to specify what calendar to be drawn
 - no space between columns in `display: grid;`
 - how to center text in div
 
+## Console theme
+style and animation mimicking terminal.
+- `sleep()` function inside `for loop` by `promise` and `async`
+- css animation
+- css `prefers-color-scheme`
+
 ## SVG Animation
 demonstrate sampling. this is a little bit complicated example
 - svg `marker`, `animate`

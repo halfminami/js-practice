@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link href="./consoleTheme.css" rel="stylesheet" type="text/css" />
+    <script src="./consoleTheme.js" defer></script>
+    <title>my consoleTheme</title>
+  </head>
+  <body>
+    <h3 id="foot">some footer message</h3>
+    <h1>async (and css animation)</h1>
+    <div style="margin: 0.3em 0">
+      <em>em text</em> <b>b text</b> <q>q text</q> <i>i text</i>
+      <strong>strong text</strong> <s>s text</s> <small>small text</small>
+      <code>code text</code> <u>u text</u> <a href="#">a text</a>
+    </div>
+    <p>
+      hello! trying to mimic some <b>console theme</b> and
+      <strong>animation</strong>
+    </p>
+    <p>
+      i picked some colors from <b>terminal</b> and applied them by
+      <code>prefers-color-scheme</code>
+    </p>
+    <p>
+      <code>dark mode</code> style is <b>campbell</b>,
+      <code>light mode</code> style is <b>campbell powershell</b>
+    </p>
+    <p>here is <em>javascript</em> source</p>
+    <pre data-interval="10">
+/**
+ * @file console typing animation
+ * sleep by waiting promise in async function is
+ * a concise way to sleep in for loop
+ */
+window.addEventListener(&quot;DOMContentLoaded&quot;, () =&gt; {
+  const INTERVAL = 250;
+  const targets = Array.from(document.querySelectorAll(&quot;p,pre&quot;));
+  animateConsole(targets);
+  /**
+   * call printConsole on each elements
+   * @param {Element[]} lines elements to be animated
+   */
+  async function animateConsole(lines) {
+    // async function to use await
+    // of course, you can make window DOMContentLoaded callback (this arrow function) async instead
+    lines.forEach((item) =&gt; item.classList.add(&quot;hidden&quot;));
+    for (let target of lines) {
+      if (target) {
+        const arr = Array.from(target.childNodes);
+        arr.forEach((item) =&gt; item.remove());
+        target.classList.remove(&quot;hidden&quot;);
+        target.classList.add(&quot;current&quot;);
+        await printConsole(
+          target,
+          arr,
+          parseInt(target.dataset.interval) || INTERVAL
+        );
+        target.classList.remove(&quot;current&quot;);
+      }
+    }
+  }
+  /**
+   * animate word typing
+   * @param {Element} cur parent element
+   * @param {Element[]} arr parent element's childNodes array
+   * @param {number} interval
+   */
+  async function printConsole(cur, arr, interval) {
+    for (item of arr) {
+      if (item) {
+        if (item.nodeName.toLowerCase() == &quot;#text&quot;) {
+          const strarr = item.textContent.split(&quot;&quot;);
+          for (char of strarr) {
+            cur.appendChild(document.createTextNode(char));
+            await sleep(interval / 10);
+            if (char == &quot; &quot;) {
+              await sleep(interval);
+            }
+          }
+        } else {
+          cur.appendChild(item);
+          await sleep(interval);
+        }
+      }
+    }
+  }
+  /**
+   * await to sleep in async function
+   * @param {number} time sleep time
+   * @returns {Promise&lt;any&gt;}
+   */
+  function sleep(time) {
+    window.scroll(0, document.body.clientHeight);
+    return new Promise((res, rej) =&gt; {
+      setTimeout(res, time);
+    });
+  }
+});
+</pre
+    >
+    <p data-interval="20"></p>
+    <p data-interval="500">
+      are these <em>animation</em> and <em>css</em> <strong>useful?</strong>
+      <small>in what case should i use this</small>
+    </p>
+  </body>
+</html>
