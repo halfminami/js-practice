@@ -29,6 +29,12 @@ style and animation mimicking terminal.
 - css animation
 - css `prefers-color-scheme`
 
+## ball dropping
+drag and double click ball.
+- `class` and its member, method
+- `MouseEvent` to get location
+- simple draggable and dropping element
+
 ## SVG Animation
 demonstrate sampling. this is a little bit complicated example
 - svg `marker`, `animate`
