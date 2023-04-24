@@ -11,6 +11,7 @@ window.addEventListener("DOMContentLoaded", () => {
     if (todo) {
       addTodo(todo);
       renderTodo();
+      input.value = "";
     }
   });
   if (!localStorage.getItem("simpleTodo")) {
